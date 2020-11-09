@@ -1,3 +1,32 @@
+from argparse import ArgumentParser
+
+    
+def parse_args(arglist): #Maya
+    """Parse and validate command line arguments.
+    
+    Args:
+        arglist(list of str): list of arguments
+    Returns: 
+        namespace: parsed arguments
+    Raises: 
+        ValueError: checks for valid data types
+    """
+    parser = ArgumentParser()
+    parser.add_argument("income", type=float,
+                        help="monthly income")
+    parser.add_argument("home", type=float,
+                        help="monthly rent/mortgage")
+    parser.add_argument("insurance", type=float,
+                        help="monthly insurance cost")
+    parser.add_argument("transport", type=float,
+                        help="monthly transportion cost")
+    parser.add_argument("food", type=float,
+                        help=" monthly food costs")
+    parser.add_argument("loan", type=float,
+                        help="monthly loan payments")
+    parser.add_argument("entertain", type=float,
+                        help="monthly entertainment costs")
+
 class Budget_Calculator:
     """Calculates credit score and annual percentage rate, provides graph
        to break down budget allocation and plans for repaying loans/mortgages
@@ -8,6 +37,7 @@ class Budget_Calculator:
     
     
     """
+    
     def credit_score(self): # Thomas
         """ DOCSTRING
         """
@@ -50,4 +80,14 @@ class Budget_Calculator:
             Returns:
                 A message that informs user of the APR of the loan. 
         """
-        
+    
+    def loan_calc(self, loan, loan_intrest, payment): # Maya
+        """Calculates how long it will take ot pay off a loan
+        Args:
+            loan(float): total cost of the loan
+            loan_intrest(float): the interest rate of the loan as a decimal
+            payment(float): how much the user is willing to pay per month
+            
+        Returns:
+            time(int): time in months till the loan is paid
+        """
