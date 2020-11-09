@@ -8,6 +8,14 @@ class Budget_Calculator:
     
     
     """
+    def credit_score(self): # Thomas
+        """ DOCSTRING
+        """
+    
+    def spending_graph(self): # Thomas
+        """ DOCSTRING
+        """
+
     def retirement(self):
         """Calculates how much of monthly budget should be directed to retirement
            savings in order to reach pension goal. The function requires user's
