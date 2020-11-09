@@ -39,11 +39,35 @@ class Budget_Calculator:
     """
     
     def credit_score(self): # Thomas
-        """ DOCSTRING
+        """ Estimates the user's credit score based on several attributes. The scale will assess how the 300-850
+            point range looks on paper, by deeming it "very poor", "poor", "fair", "good", and "excellent. The
+            points are 300-580, 580-640, 640-720, 720-780, and 780-850, respectively.
+            
+            Attributes:
+                missed_payments(int): number of missed payments over 7 years
+                outstanding_balance(int): sum of unpaid debt
+                credit_length(int):length that credit has been established
+                new_credit(int): number of credit lines opened within 3 years
+            Returns:
+                credit_score(int): credit score on the 300-850 point scale
         """
     
     def spending_graph(self): # Thomas
-        """ DOCSTRING
+        """ Visualizes the user's monthly spending habits into a pie chart, giving percentages of how much each
+            field consumes one's spending.
+            
+            Attributes:
+                housing_cost(int):
+                food_cost(int):
+                transportation_cost(int):
+                insurance_cost(int):
+                savings_cost(int):
+                retirement_cost(int):
+                recreational_cost(int):
+                
+            Returns:
+                pie chart that shows the spending percentage of each attribute.
+                
         """
 
     def retirement(self):
