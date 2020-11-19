@@ -116,7 +116,7 @@ class Budget_Calculator:
             time(int): time in months till the loan is paid
         """
         
-def budget_rule(needs, wants, savings):
+def budget_rule(needs, wants, savings): #Anthony
     '''
     Function to tell you if your budgeting matches the 50-30-20 Rule
 
@@ -134,7 +134,7 @@ def budget_rule(needs, wants, savings):
     else:
         return False
 
-def american_comparison(needs, wants, savings):
+def american_comparison(needs, wants, savings): #Anthony
     '''
     Function to display a comparison about your spending versus the average american
 
