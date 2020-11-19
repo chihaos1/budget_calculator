@@ -26,7 +26,9 @@ def parse_args(arglist): #Maya
                         help="monthly loan payments")
     parser.add_argument("entertain", type=float,
                         help="monthly entertainment costs")
-
+#Add argument for retirement and savings
+    
+    
 class Budget_Calculator:
     """Calculates credit score and annual percentage rate, provides graph
        to break down budget allocation and plans for repaying loans/mortgages
@@ -37,6 +39,101 @@ class Budget_Calculator:
     
     
     """
+    def __init__(self, income, home, insurance, transport, food, loan, entertain):
+        #Maya
+        #Individual and a total for need and want
+        
+        self.need = 
+    
+    def loan_calc(self, loan, loan_intrest, payment): # Maya
+        """Calculates how long it will take ot pay off a loan
+        Args:
+            loan(float): total cost of the loan
+            loan_intrest(float): the interest rate of the loan as a decimal
+            payment(float): how much the user is willing to pay per month
+            
+        Returns:
+            time(int): time in months till the loan is paid
+        """
+    
+    def spending_graph(self, housing, food, transport, insurance, savings, retirement, recreation): # Thomas
+        """ Visualizes the user's monthly spending habits into a pie chart, giving percentages of how much each
+            field consumes one's spending.
+            
+            Attributes:
+                housing(int): monthly cost of housing
+                food(int): monthly cost of food
+                transportation(int): monthly cost of transportation
+                insurance(int): monthly cost of insuranc
+                savings(int): monthly cost devoted to savings
+                retirement(int): monthly cost devoted to retirement
+                recreation(int): monthly cost for recreation
+                
+            Returns:
+                pie chart that shows the spending percentage of each attribute.
+                
+        """
+        labels = "Housing", "Food", "Transportation", "Insurance", "Savings", "Retirement", "Recreation"
+        sizes = housing, food, transport, insurance, savings, retirement, recreation
+        explode = (0,0,0,0,0.1,0.1,0)
+        
+        plt.pie(sizes, explode = explode, labels = labels, autopct='%1.1f%%', shadow=True, startangle=90)
+        plt.axis('equal')
+        plt.show()
+    
+    def budget_rule(needs, wants, savings): #Anthony
+    '''
+    Function to tell you if your budgeting matches the 50-30-20 Rule
+
+    Params:
+        needs (integer): The amount of money that you spend of necessities per month
+        wants (integer); The amount of money that you spend of wants per month
+        savings (integer): The amount of money that you save per month
+
+    Returns:
+        Boolean: Returns based on if your spending fits into the 50-30-20 Rule
+    '''
+    total = needs+wants+savings
+    if (needs/total) <= .5 and (wants/total) <= .3 and (savings/total) >= .2:
+        return True
+    else:
+        return False
+    
+    def american_comparison(needs, wants, savings): #Anthony
+    '''
+    Function to display a comparison about your spending versus the average american
+
+    Params:
+        needs (integer): The amount of money that you spend of necessities per month
+        wants (integer); The amount of money that you spend of wants per month
+        savings (integer): The amount of money that you save per month
+
+    Returns:
+        None: Displays a line graph of the users inputted budgeting information and compares it to the average american
+    '''
+    average_needs = .748
+    average_wants = .173
+    average_savings = .079
+
+    total = needs+wants+savings
+    user_needs = needs/total
+    user_wants = wants/total
+    user_savings = savings/total
+
+    spending_type = ["Needs", "Wants", "Savings"]
+    spending_rate1 = [user_needs, user_wants, user_savings]
+    spending_rate2 = [average_needs, average_wants, average_savings]
+
+    plt.plot(spending_type, spending_rate1)
+    plt.plot(spending_type, spending_rate2)
+
+    plt.title('You vs Average American Spending')
+    plt.xlabel('Type of Spending')
+    plt.ylabel('Percentage of Income')
+    plt.show()
+        
+        
+class Loan_Calculator: 
     
     def credit_score(self, last_missed, outstanding_balance, credit_length, new_credit, credit_mix): # Thomas
         """ Estimates the user's credit score based on several attributes. The scale will assess how the 300-850
@@ -84,33 +181,22 @@ class Budget_Calculator:
         
         return(credit_score)
     
-    
-    def spending_graph(self, housing, food, transport, insurance, savings, retirement, recreation): # Thomas
-        """ Visualizes the user's monthly spending habits into a pie chart, giving percentages of how much each
-            field consumes one's spending.
+    def apr(self):
+        """Calculates the annual percentage rate of loans. The function requires loan amount, interest rate, 
+           loan term, and total fees
             
             Attributes:
-                housing(int): monthly cost of housing
-                food(int): monthly cost of food
-                transportation(int): monthly cost of transportation
-                insurance(int): monthly cost of insuranc
-                savings(int): monthly cost devoted to savings
-                retirement(int): monthly cost devoted to retirement
-                recreation(int): monthly cost for recreation
-                
-            Returns:
-                pie chart that shows the spending percentage of each attribute.
-                
-        """
-        labels = "Housing", "Food", "Transportation", "Insurance", "Savings", "Retirement", "Recreation"
-        sizes = housing, food, transport, insurance, savings, retirement, recreation
-        explode = (0,0,0,0,0.1,0.1,0)
-        
-        plt.pie(sizes, explode = explode, labels = labels, autopct='%1.1f%%', shadow=True, startangle=90)
-        plt.axis('equal')
-        plt.show()
-        
+                loan_amount(int): the total amount of loan
+                interest(int): the percentage of interest from loan 
+                loan_term(int): the number of years to pay off a loan
+                fees(int): the total fees for taking out the loan
 
+            Returns:
+                A message that informs user of the APR of the loan. 
+        """
+    
+
+class Retirement_Calculator: 
     def retirement(self):
         """Calculates how much of monthly budget should be directed to retirement
            savings in order to reach pension goal. The function requires user's
@@ -132,78 +218,9 @@ class Budget_Calculator:
         
         """
     
-    def apr(self):
-        """Calculates the annual percentage rate of loans. The function requires loan amount, interest rate, 
-           loan term, and total fees
-            
-            Attributes:
-                loan_amount(int): the total amount of loan
-                interest(int): the percentage of interest from loan 
-                loan_term(int): the number of years to pay off a loan
-                fees(int): the total fees for taking out the loan
-
-            Returns:
-                A message that informs user of the APR of the loan. 
-        """
     
-    def loan_calc(self, loan, loan_intrest, payment): # Maya
-        """Calculates how long it will take ot pay off a loan
-        Args:
-            loan(float): total cost of the loan
-            loan_intrest(float): the interest rate of the loan as a decimal
-            payment(float): how much the user is willing to pay per month
-            
-        Returns:
-            time(int): time in months till the loan is paid
-        """
+    
         
-def budget_rule(needs, wants, savings): #Anthony
-    '''
-    Function to tell you if your budgeting matches the 50-30-20 Rule
 
-    Params:
-        needs (integer): The amount of money that you spend of necessities per month
-        wants (integer); The amount of money that you spend of wants per month
-        savings (integer): The amount of money that you save per month
 
-    Returns:
-        Boolean: Returns based on if your spending fits into the 50-30-20 Rule
-    '''
-    total = needs+wants+savings
-    if (needs/total) <= .5 and (wants/total) <= .3 and (savings/total) >= .2:
-        return True
-    else:
-        return False
 
-def american_comparison(needs, wants, savings): #Anthony
-    '''
-    Function to display a comparison about your spending versus the average american
-
-    Params:
-        needs (integer): The amount of money that you spend of necessities per month
-        wants (integer); The amount of money that you spend of wants per month
-        savings (integer): The amount of money that you save per month
-
-    Returns:
-        None: Displays a line graph of the users inputted budgeting information and compares it to the average american
-    '''
-    average_needs = .748
-    average_wants = .173
-    average_savings = .079
-
-    total = needs+wants+savings
-    user_needs = needs/total
-    user_wants = wants/total
-    user_savings = savings/total
-
-    spending_type = ["Needs", "Wants", "Savings"]
-    spending_rate1 = [user_needs, user_wants, user_savings]
-    spending_rate2 = [average_needs, average_wants, average_savings]
-
-    plt.plot(spending_type, spending_rate1)
-    plt.plot(spending_type, spending_rate2)
-
-    plt.title('You vs Average American Spending')
-    plt.xlabel('Type of Spending')
-    plt.ylabel('Percentage of Income')
-    plt.show()
