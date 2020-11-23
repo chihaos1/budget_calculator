@@ -192,20 +192,23 @@ class Loan_Calculator:
         
         return(credit_score)
     
-    def apr(self):
+    def annual_apr(self, loan_amount, interest_rate, loan_term, fee):
         """Calculates the annual percentage rate of loans. The function requires loan amount, interest rate, 
            loan term, and total fees
             
             Attributes:
                 loan_amount(int): the total amount of loan
-                interest(int): the percentage of interest from loan 
+                interest_rate(int): the percentage of interest from loan 
                 loan_term(int): the number of years to pay off a loan
                 fees(int): the total fees for taking out the loan
 
             Returns:
                 A message that informs user of the APR of the loan. 
         """
-    
+        interest_total = loan_amount * (interest_rate/100) * loan_term #total interest paid over the lifetime of the loan
+        total_loan_days = 365 * loan_term #number of days in loan term
+        apr = ((((fee + interest_total)/loan_amount)/total_loan_days) * 365) * 100
+        print(round(apr, 2))
 
 class Retirement_Calculator: 
     def retirement(self):
