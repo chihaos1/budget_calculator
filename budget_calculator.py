@@ -75,15 +75,15 @@ class Budget_Calculator:
                 insurance(int): monthly cost of insuranc
                 save(int): monthly cost devoted to savings
                 retire(int): monthly cost devoted to retirement
-                recreation(int): monthly cost for recreation
+                entertain(int): monthly cost for recreation
                 loan(int): monthly dues for loans
                 
             Returns:
                 pie chart that shows the spending percentage of each attribute
                 
         """
-        labels = "Housing", "Food", "Transportation", "Insurance", "Savings", "Retirement", "Recreation", "Loan"
-        sizes = self.home, self.food, self.transport, self.insurance, self.save, self.retire, self.recreation, self.loan
+        labels = "Housing", "Food", "Transportation", "Insurance", "Savings", "Retirement", "Entertainment", "Loan"
+        sizes = self.home, self.food, self.transport, self.insurance, self.save, self.retire, self.entertain, self.loan
         explode = (0,0,0,0,0.1,0.1,0,0)
         
         plt.pie(sizes, explode = explode, labels = labels, autopct='%1.1f%%', shadow=True, startangle=90)
