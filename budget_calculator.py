@@ -32,6 +32,8 @@ def parse_args(arglist): #Maya
                         help="monthly savings payments")
     parser.add_argument("retirement", type=float,
                         help="monthly retirement savings costs")
+    args = parser.parse_args()
+    return args
 #Add argument for retirement and savings (done)
     
     
@@ -143,7 +145,7 @@ class Budget_Calculator:
  
 if __name__ == "__main__":
     args = parse_args(sys.argv[1:])  
-    
+    Budget_Calculator(args.income, args.home, args.insurance, args.transport, args.food, args.loan, args.entertain, args.save, args.retire)
             
 class Loan_Calculator: 
     """ Estimates credit score based on credit history, and calculates
