@@ -64,7 +64,7 @@ class Budget_Calculator:
         self.retire = retire
         
     
-    def spending_graph(self, housing, food, transport, insurance, savings, retirement, recreation): # Thomas
+    def spending_graph(self): # Thomas
         """ Visualizes the user's monthly spending habits into a pie chart, giving percentages of how much each
             field consumes one's spending.
             
