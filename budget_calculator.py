@@ -69,21 +69,22 @@ class Budget_Calculator:
             field consumes one's spending.
             
             Attributes:
-                housing(int): monthly cost of housing
+                home(int): monthly cost of housing
                 food(int): monthly cost of food
-                transportation(int): monthly cost of transportation
+                transport(int): monthly cost of transportation
                 insurance(int): monthly cost of insuranc
-                savings(int): monthly cost devoted to savings
-                retirement(int): monthly cost devoted to retirement
+                save(int): monthly cost devoted to savings
+                retire(int): monthly cost devoted to retirement
                 recreation(int): monthly cost for recreation
+                loan(int): monthly dues for loans
                 
             Returns:
-                pie chart that shows the spending percentage of each attribute.
+                pie chart that shows the spending percentage of each attribute
                 
         """
-        labels = "Housing", "Food", "Transportation", "Insurance", "Savings", "Retirement", "Recreation"
-        sizes = housing, food, transport, insurance, savings, retirement, recreation
-        explode = (0,0,0,0,0.1,0.1,0)
+        labels = "Housing", "Food", "Transportation", "Insurance", "Savings", "Retirement", "Recreation", "Loan"
+        sizes = self.home, self.food, self.transport, self.insurance, self.save, self.retire, self.recreation, self.loan
+        explode = (0,0,0,0,0.1,0.1,0,0)
         
         plt.pie(sizes, explode = explode, labels = labels, autopct='%1.1f%%', shadow=True, startangle=90)
         plt.axis('equal')
