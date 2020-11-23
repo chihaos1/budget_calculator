@@ -64,26 +64,27 @@ class Budget_Calculator:
         self.retire = retire
         
     
-    def spending_graph(self, housing, food, transport, insurance, savings, retirement, recreation): # Thomas
+    def spending_graph(self): # Thomas
         """ Visualizes the user's monthly spending habits into a pie chart, giving percentages of how much each
             field consumes one's spending.
             
             Attributes:
-                housing(int): monthly cost of housing
+                home(int): monthly cost of housing
                 food(int): monthly cost of food
-                transportation(int): monthly cost of transportation
+                transport(int): monthly cost of transportation
                 insurance(int): monthly cost of insuranc
-                savings(int): monthly cost devoted to savings
-                retirement(int): monthly cost devoted to retirement
-                recreation(int): monthly cost for recreation
+                save(int): monthly cost devoted to savings
+                retire(int): monthly cost devoted to retirement
+                entertain(int): monthly cost for recreation
+                loan(int): monthly dues for loans
                 
             Returns:
-                pie chart that shows the spending percentage of each attribute.
+                pie chart that shows the spending percentage of each attribute
                 
         """
-        labels = "Housing", "Food", "Transportation", "Insurance", "Savings", "Retirement", "Recreation"
-        sizes = housing, food, transport, insurance, savings, retirement, recreation
-        explode = (0,0,0,0,0.1,0.1,0)
+        labels = "Housing", "Food", "Transportation", "Insurance", "Savings", "Retirement", "Entertainment", "Loan"
+        sizes = self.home, self.food, self.transport, self.insurance, self.save, self.retire, self.entertain, self.loan
+        explode = (0,0,0,0,0.1,0.1,0,0)
         
         plt.pie(sizes, explode = explode, labels = labels, autopct='%1.1f%%', shadow=True, startangle=90)
         plt.axis('equal')
@@ -145,11 +146,21 @@ if __name__ == "__main__":
     
             
 class Loan_Calculator: 
+    """ Estimates credit score based on credit history, and calculates
+        loan annual percentage rates with the credit score."""
     
-    def credit_score(self, last_missed, outstanding_balance, credit_length, new_credit, credit_mix): # Thomas
-        """ Estimates the user's credit score based on several attributes. The scale will assess how the 300-850
-            point range looks on paper, by deeming it "very poor", "poor", "fair", "good", and "excellent. The
-            points are 300-580, 580-640, 640-720, 720-780, and 780-850, respectively.
+    def __init__(self, last_missed, outstanding_balance, credit_length, new_credit, credit_mix): #Thomas
+        self.last_missed = last_missed
+        self.outstanding_balance = outstanding_balance
+        self.credit_length = credit_length
+        self.new_credit = new_credit
+        self.credit_mix = credit_mix
+    
+    def credit_score(self): # Thomas
+        """ Estimates the user's credit score based on several attributes.
+            The scale will assess how the 300-850 point range looks on paper,
+            by deeming it very poor, poor, fair, good, and excellent. The points
+            are 300-580, 580-640, 640-720, 720-780, and 780-850, respectively.
             
             Attributes:
                 last_missed(int): number of months since last missed payment. 0 for never
@@ -161,33 +172,33 @@ class Loan_Calculator:
                 credit_score(int): credit score on the 300-850 point scale
         """
         credit_score = 0
-        if last_missed == 0: credit_score += 300
-        elif 0 < last_missed <= 5: credit_score += 105
-        elif 5 < last_missed <= 11: credit_score += 150
-        elif 11 < last_missed <= 23: credit_score += 200
+        if self.last_missed == 0: credit_score += 300
+        elif 0 < self.last_missed <= 5: credit_score += 105
+        elif 5 < self.last_missed <= 11: credit_score += 150
+        elif 11 < self.last_missed <= 23: credit_score += 200
         else: credit_score += 250
         
-        if outstanding_balance == 0: credit_score += 255
-        elif 0 < outstanding_balance <= 99: credit_score += 210
-        elif 99 < outstanding_balance <= 499: credit_score += 170
-        elif 499 < outstanding_balance <= 999: credit_score += 130
+        if self.outstanding_balance == 0: credit_score += 255
+        elif 0 < self.outstanding_balance <= 99: credit_score += 210
+        elif 99 < self.outstanding_balance <= 499: credit_score += 170
+        elif 499 < self.outstanding_balance <= 999: credit_score += 130
         else: credit_score += 90
         
-        if credit_length >= 48: credit_score += 125
-        elif 12 < credit_length <= 23: credit_score += 95
-        elif 23 < credit_length <= 47: credit_score += 70
+        if self.credit_length >= 48: credit_score += 125
+        elif 12 < self.credit_length <= 23: credit_score += 95
+        elif 23 < self.credit_length <= 47: credit_score += 70
         else: credit_score += 45
         
-        if new_credit == 0: credit_score += 85
-        elif new_credit == 1: credit_score += 60
-        elif new_credit == 2: credit_score += 50
-        elif new_credit == 3: credit_score += 40
+        if self.new_credit == 0: credit_score += 85
+        elif self.new_credit == 1: credit_score += 60
+        elif self.new_credit == 2: credit_score += 50
+        elif self.new_credit == 3: credit_score += 40
         else: credit_score += 30
         
-        if credit_mix >= 4: credit_score += 85
-        elif credit_mix == 3: credit_score += 60
-        elif credit_mix == 2: credit_score += 50
-        elif credit_mix == 1: credit_score += 40
+        if self.credit_mix >= 4: credit_score += 85
+        elif self.credit_mix == 3: credit_score += 60
+        elif self.credit_mix == 2: credit_score += 50
+        elif self.credit_mix == 1: credit_score += 40
         else: credit_score += 30
         
         return(credit_score)
