@@ -175,35 +175,68 @@ def budget_rule(needs, wants, savings): #Anthony
     else:
         return False
 
-def american_comparison(needs, wants, savings): #Anthony
-    '''
-    Function to display a comparison about your spending versus the average american
+    def budget_rule(self,needs, wants, savings):  # Anthony
+        '''
+        Function that determines whether the inputted information for budgeting matches the 50-30-20 Rule
+        for splitting a needs, wants, and savings budget out of a total income
 
-    Params:
-        needs (integer): The amount of money that you spend of necessities per month
-        wants (integer); The amount of money that you spend of wants per month
-        savings (integer): The amount of money that you save per month
+        Params:
+            needs (integer): The monthly cost of necessities
+            wants (integer): The monthly
+            savings (integer): The amount of money that you save per month
 
-    Returns:
-        None: Displays a line graph of the users inputted budgeting information and compares it to the average american
-    '''
-    average_needs = .748
-    average_wants = .173
-    average_savings = .079
+        Returns:
+            Boolean: Returns based on if your spending fits into the 50-30-20 Rule
+        '''
+        total = needs + wants + savings
+        if (needs / total) <= .5 and (wants / total) <= .3 and (savings / total) >= .2:
+            return True
+        else:
+            return False
 
-    total = needs+wants+savings
-    user_needs = needs/total
-    user_wants = wants/total
-    user_savings = savings/total
 
-    spending_type = ["Needs", "Wants", "Savings"]
-    spending_rate1 = [user_needs, user_wants, user_savings]
-    spending_rate2 = [average_needs, average_wants, average_savings]
+    def american_comparison(self,needs, wants, savings):  # Anthony
+        '''
+        Function to display a comparison about your spending versus the average american
 
-    plt.plot(spending_type, spending_rate1)
-    plt.plot(spending_type, spending_rate2)
+        Params:
+            needs (integer): The amount of money that you spend of necessities per month
+            wants (integer); The amount of money that you spend of wants per month
+            savings (integer): The amount of money that you save per month
 
-    plt.title('You vs Average American Spending')
-    plt.xlabel('Type of Spending')
-    plt.ylabel('Percentage of Income')
-    plt.show()
+        Returns:
+            None: Displays a line graph of the users inputted budgeting information and compares it to the average
+                  american
+        '''
+        average_needs = .748
+        average_wants = .173
+        average_savings = .079
+
+        total = needs + wants + savings
+        user_needs = needs / total
+        user_wants = wants / total
+        user_savings = savings / total
+
+        spending_type = ["Needs", "Wants", "Savings"]
+        spending_rate1 = [user_needs, user_wants, user_savings]
+        spending_rate2 = [average_needs, average_wants, average_savings]
+
+        plt.plot(spending_type, spending_rate1)
+        plt.plot(spending_type, spending_rate2)
+
+        plt.title('You vs Average American Spending')
+        plt.xlabel('Type of Spending')
+        plt.ylabel('Percentage of Income')
+        plt.show()
+
+
+if __name__ == "__main__": #Anthony
+    args = parse_args(sys.argv[1:])
+
+    needs = args.home + args.insurance + args.transport + args.loans
+    wants = args.entertain
+    savings = args.income - (needs + wants)
+
+    calc = Budget_Calculator()
+    calc.budget_rule(needs=needs, wants=wants, savings=savings)
+    calc.american_comparison(needs=needs, wants=wants, savings=savings)
