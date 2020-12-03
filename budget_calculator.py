@@ -349,6 +349,6 @@ if __name__ == "__main__": #Anthony
     wants = args.entertain
     savings = args.income - (needs + wants)
 
-    calc = Budget_Calculator()
+    calc = budget_calculator()
     calc.budget_rule(needs=needs, wants=wants, savings=savings)
     calc.american_comparison(needs=needs, wants=wants, savings=savings)
