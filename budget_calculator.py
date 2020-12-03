@@ -37,6 +37,9 @@ def parse_args(arglist): #Maya
 #Add argument for retirement and savings (done)
     
     
+    
+    
+    
 class Budget_Calculator:
     """Calculates credit score and annual percentage rate, provides graph
        to break down budget allocation and plans for repaying loans/mortgages
@@ -143,10 +146,10 @@ class Budget_Calculator:
         plt.ylabel('Percentage of Income')
         plt.show()
  
-if __name__ == "__main__":
-    args = parse_args(sys.argv[1:])  
-    Budget_Calculator(args.income, args.home, args.insurance, args.transport, args.food, args.loan, args.entertain, args.save, args.retire)
-            
+
+
+
+
 class Loan_Calculator: 
     """ Estimates credit score based on credit history, and calculates
         loan annual percentage rates with the credit score."""
@@ -261,11 +264,14 @@ class Retirement_Calculator:
         else:
             print('You are on track to meeting your pension goal.')
     
+ 
+ 
+ 
+ 
+ 
     
-class loanCalculator:
+class timeToPayLoan:
     """Calculates how long it will take to pay off a loan
-    
-        Params:
     
     """
     def __init__(self, loan, loan_interest, payment):
@@ -340,6 +346,9 @@ class loanCalculator:
         plt.xlabel('Type of Spending')
         plt.ylabel('Percentage of Income')
         plt.show()
+
+
+
 
 
 if __name__ == "__main__": #Anthony
