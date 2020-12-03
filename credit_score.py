@@ -1,6 +1,14 @@
 class Credit_Score: 
     """ Estimates credit score based on credit history, and calculates
-        loan annual percentage rates with the credit score."""
+        loan annual percentage rates with the credit score.
+        
+        Attributes:
+                last_missed(int): number of months since last missed payment. 0 for never
+                outstanding_balance(int): sum of unpaid debt in USD
+                credit_length(int): length that credit has been established
+                new_credit(int): number of inquiries in the last 6 months
+                credit_mix(int): number of bankcard trade lines
+    """
     
     def __init__(self, last_missed, outstanding_balance, credit_length, new_credit, credit_mix): #Thomas
         self.last_missed = last_missed
@@ -15,14 +23,8 @@ class Credit_Score:
             by deeming it very poor, poor, fair, good, and excellent. The points
             are 300-580, 580-640, 640-720, 720-780, and 780-850, respectively.
             
-            Attributes:
-                last_missed(int): number of months since last missed payment. 0 for never
-                outstanding_balance(int): sum of unpaid debt in USD
-                credit_length(int): length that credit has been established
-                new_credit(int): number of inquiries in the last 6 months
-                credit_mix(int): number of bankcard trade lines
             Returns:
-                credit_score(int): credit score on the 300-850 point scale
+                Credit score on the 300-850 point scale
         """
         credit_score = 0
         if self.last_missed == 0: credit_score += 300
