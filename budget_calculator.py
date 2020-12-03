@@ -6,13 +6,20 @@ import numpy as np
 
     
 class Budget_Calculator:
-    """Calculates credit score and annual percentage rate, provides graph
-       to break down budget allocation and plans for repaying loans/mortgages
-       and annual percentage rate (APR), and compares user's budget with the 
-       50-30-20 rule. 
+    """Creates a graph to break down budget allocation, compares user's budget with the 
+       50-30-20 rule and compares the user's spending to American spending. 
        
        Attributes: 
-    
+        income(float): monthly income
+        home(float): monthly rent/mortgage
+        insurance(float): monthly insurance payments
+        transport(float): monthly transportation costs
+        food(float): monthly food costs
+        loan(float): monthly loan payments
+        entertain(float): monthly enteratinment costs
+        save(float): monthly savings
+        retire(float): monthly retirement savings
+        
     
     """
     def __init__(self,income, home, insurance, transport, food, loan, entertain, save, retire):
