@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import numpy as np
     
 
-    
 class Budget_Calculator:
     """Creates a graph to break down budget allocation, compares user's budget with the 
        50-30-20 rule and compares the user's spending to American spending. 
@@ -81,9 +80,9 @@ class Budget_Calculator:
         """
         total = self.need+self.want+self.savings
         if (self.need/total) <= .5 and (self.want/total) <= .3 and (self.savings/total) >= .2:
-            return True
+            print("Your budgeting matches the 50-30-20 Rule") 
         else:
-            return False
+            print("Your budgeting does not match the 50-30-20 Rule")
     
     def american_comparison(self): #Anthony
         '''
@@ -120,8 +119,11 @@ class Budget_Calculator:
  
 def main(income, home, insurance, transport, food, loan, entertain, savings, retirement):
     calc = Budget_Calculator(income, home, insurance, transport, food, loan, entertain, savings, retirement)
-    print(calc)
-
+    return calc.american_comparison(), calc.spending_graph(), calc.budget_rule()
+    
+    
+    
+    
 def parse_args(arglist): #Maya
     """Parse and validate command line arguments.
     
