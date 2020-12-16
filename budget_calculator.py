@@ -7,7 +7,7 @@ import numpy as np
 class Budget_Calculator:
     """Creates a graph to break down budget allocation, compares user's budget with the 
        50-30-20 rule and compares the user's spending to American spending. 
-       
+
        Attributes: 
         income(float): monthly income
         home(float): monthly rent/mortgage
@@ -19,7 +19,7 @@ class Budget_Calculator:
         save(float): monthly savings
         retire(float): monthly retirement savings
         
-    
+
     """
     def __init__(self,income, home, insurance, transport, food, loan, entertain, save, retire):
         #Maya
@@ -121,9 +121,6 @@ def main(income, home, insurance, transport, food, loan, entertain, savings, ret
     calc = Budget_Calculator(income, home, insurance, transport, food, loan, entertain, savings, retirement)
     return calc.american_comparison(), calc.spending_graph(), calc.budget_rule()
     
-    
-    
-    
 def parse_args(arglist): #Maya
     """Parse and validate command line arguments.
     
@@ -131,8 +128,6 @@ def parse_args(arglist): #Maya
         arglist(list of str): list of arguments
     Returns: 
         namespace: parsed arguments
-    Raises: 
-        ValueError: checks for valid data types
     """
     parser = ArgumentParser()
     parser.add_argument("income", type=float,
@@ -153,8 +148,7 @@ def parse_args(arglist): #Maya
                         help="monthly savings payments")
     parser.add_argument("retirement", type=float,
                         help="monthly retirement savings costs")
-    args = parser.parse_args()
-    return args
+    return parser.parse_args(arglist)
 
 if __name__ == "__main__": #Anthony
     args = parse_args(sys.argv[1:])
