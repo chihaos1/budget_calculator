@@ -11,7 +11,7 @@ class Loan_Calculator:
             fee(int): the total fee for taking out the loan
 
     """
-    def __init__(self, loan, loan_interest, payment, loan_term, fee):
+    def __init__(self, loan, loan_interest, payment, loan_term, fee): #Maya
         self.loan = loan
         self.loan_interest = loan_interest
         self.payment = payment

@@ -94,7 +94,8 @@ class Budget_Calculator:
             savings (integer): The amount of money that you save per month
 
         Returns:
-            None: Displays a line graph of the users inputted budgeting information and compares it to the average american
+            None: Displays a line graph of the users inputted budgeting information and compares
+            it to the average american
         '''
         average_needs = .748
         average_wants = .173
