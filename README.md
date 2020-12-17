@@ -1,5 +1,6 @@
 # budget_calculator
-A program that keeps track of the user's budget and provides financial suggestions according to the user's needs. 
+A program that keeps track of the user's budget and provides financial
+suggestions according to the user's needs. 
 
 PURPOSE OF EACH FILE
 -------------------------
@@ -29,18 +30,7 @@ budget_calculator.py:
 
 	parse_args() method:
 		Parses and validates command line arguments.
-
-credit_score.py:
-	Estimates credit score based on credit history, and calculates
-        loan annual percentage rates with the credit score.
-
-	__init__() method:
-		Gathers credit data and initializes them into the
-		function.
-
-	credit_score() method:
-		Estimates the user's credit score based on several
-		attributes, within a range of 300-850.
+	
 
 loan_calculator.py:
 	Calculates how long it will take to pay off a loan and the apr
@@ -55,19 +45,16 @@ loan_calculator.py:
 		months.
 
 	annual_apr() method:
-		Calculates the annual percentage rate of loans.
+		Calculates the annual percentage rate of loans.	
 
-retirement.py:
-	Checks if user's monthly pension saving is on track to meeting
-	the pension goal
-
-	__init__() method:
-		Gathers retirement data and initializes them into the
-		function.
+	credit_score() method:
+		Estimates the user's credit score based on several
+		attributes, within a range of 300-850.
 
 	retirement() method:
 		Calculates how much of monthly budget should be directed
 		to retirement savings in order to reach pension goal.
+	
 
 test_calculator.py:
 	Developer defined test scripts to verify integrity of multiple
