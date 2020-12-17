@@ -107,6 +107,14 @@ class Loan_Calculator:
                 to the monthly retirement saving. 
         
     """
+        if current_age > retirement_age: 
+            print("Invalid Input: current age cannot be bigger than retirement age")
+            return 
+        
+        if current_pension_saving > pension_goal:
+            print("You can retire now!")
+            return
+
         months_until_retirement = (retirement_age - current_age) * 12
         amount_until_pension_goal = pension_goal - current_pension_saving
         monthly_saving_needed = amount_until_pension_goal/months_until_retirement
