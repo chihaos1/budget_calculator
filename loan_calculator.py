@@ -1,5 +1,4 @@
 import numpy as np
-import math 
 
 class Loan_Calculator:
     """Calculates how long it will take to pay off a loan and the apr of the loan
@@ -12,7 +11,7 @@ class Loan_Calculator:
             fee(int): the total fee for taking out the loan
 
     """
-    def __init__(self, loan, loan_interest, payment, loan_term, fee): #Maya
+    def __init__(self, loan, loan_interest, payment, loan_term, fee):
         self.loan = loan
         self.loan_interest = loan_interest
         self.payment = payment
@@ -25,9 +24,7 @@ class Loan_Calculator:
             Side effect:
                 prints months to pay off loan
         """
-
         time = np.round(np.nper(self.loan_interest/12, (-1*self.payment), self.loan), 0)
-
         print(f"The time required to repay the loan is {round(time)} months")         
     
     def annual_apr(self):
@@ -42,7 +39,7 @@ class Loan_Calculator:
         apr = ((((self.fee + interest_total)/self.loan)/total_loan_days) * 365) * 100
         print(f"The apr of the loan is {round(apr, 2)}%")
     
-    def credit_score(self, last_missed, outstanding_balance, credit_length, new_credit, credit_mix): # Thomas
+    def credit_score(self, last_missed, outstanding_balance, credit_length, new_credit, credit_mix):
         """ Estimates the user's credit score based on several attributes.
             The scale will assess how the 300-850 point range looks on paper,
             by deeming it very poor, poor, fair, good, and excellent. The points
