@@ -1,4 +1,5 @@
 import numpy as np
+import math 
 
 class Loan_Calculator:
     """Calculates how long it will take to pay off a loan and the apr of the loan
@@ -21,10 +22,12 @@ class Loan_Calculator:
     def loan_calc(self):
         """Calculates how long it will take to pay off a loan
             
-            Returns:
-                Time in months till the loan is paid
+            Side effect:
+                prints months to pay off loan
         """
-        time=(-np.log(((1-self.loan_interest)*self.loan)/self.payment))/ np.log(1+self.loan_interest)
+
+        time = np.round(np.nper(self.loan_interest/12, (-1*self.payment), self.loan), 0)
+
         print(f"The time required to repay the loan is {round(time)} months")         
     
     def annual_apr(self):

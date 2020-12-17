@@ -86,17 +86,10 @@ class Budget_Calculator:
                 wants (integer): The amount of money that you spend of wants per month
                 savings (integer): The amount of money that you save per month
 
-<<<<<<< HEAD
             Side Effect:
                 Displays a bar graph of the user's inputted spending information 
                 and compares it to the average american spending
         """
-=======
-        Returns:
-            None: Displays a line graph of the users inputted budgeting information and compares
-            it to the average american
-        '''
->>>>>>> 110a411d3456d6fd38c0b03a53c59b2f8563fd5f
         average_needs = .748
         average_wants = .173
         average_savings = .079
