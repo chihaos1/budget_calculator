@@ -216,7 +216,7 @@ def parse_args(arglist):
                         help="monthly retirement savings costs")
     return parser.parse_args(arglist)
 
-if __name__ == "__main__": #Anthony
+if __name__ == "__main__": 
     args = parse_args(sys.argv[1:])
     main(args.income, args.home, args.insurance, args.transport, args.food, 
          args.loan, args.entertain, args.savings,  args.retirement)
