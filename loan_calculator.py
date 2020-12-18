@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class Loan_Calculator:
     """Calculates how long it will take to pay off a loan and the apr of the loan
     
@@ -24,8 +25,10 @@ class Loan_Calculator:
             Side effect:
                 prints months to pay off loan
         """
+        
         time = np.round(np.nper(self.loan_interest/12, (-1*self.payment), self.loan), 0)
-        print(f"The time required to repay the loan is {round(time)} months")         
+
+        print(f"The time required to repay the loan is {time} months")         
     
     def annual_apr(self):
         """Calculates the annual percentage rate of loans. The function requires 
@@ -107,6 +110,14 @@ class Loan_Calculator:
                 to the monthly retirement saving. 
         
     """
+        if current_age > retirement_age: 
+            print("Invalid Input: current age cannot be bigger than retirement age")
+            return 
+        
+        if current_pension_saving > pension_goal:
+            print("You can retire now!")
+            return
+
         months_until_retirement = (retirement_age - current_age) * 12
         amount_until_pension_goal = pension_goal - current_pension_saving
         monthly_saving_needed = amount_until_pension_goal/months_until_retirement
