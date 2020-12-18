@@ -11,8 +11,27 @@ from loan_calculator import Loan_Calculator
 
 
 #Maya
-#def function():
-    #assert easter_date(2021) == "April 4"
+def test_loan_calc():
+
+    #last 2 args do not effect loan_calc
+    assert Loan_Calculator(0,0,0,0,0).loan_calc() == print("The time required to repay the loan is 0.0 months")
+    #tests if loan = 0
+    assert Loan_Calculator(0,.15,500,0,0).loan_calc() == print("The time required to repay the loan is 0.0 months")
+    assert Loan_Calculator(0,.07,2,0,0).loan_calc() == print("The time required to repay the loan is 0 months")
+    assert Loan_Calculator(0,.03,1000,0,0).loan_calc() == print("The time required to repay the loan is 0 months")
+    #tests if interest = 0
+    assert Loan_Calculator(70000,0,500,0,0).loan_calc() == print("The time required to repay the loan is 140 months")
+    assert Loan_Calculator(5000,0,100,0,0).loan_calc() == print("The time required to repay the loan is 50 months")
+    assert Loan_Calculator(5,0,1,0,0).loan_calc() == print("The time required to repay the loan is 5 months")
+    #test if payment = 0
+    assert Loan_Calculator(100,.2,0,0,0).loan_calc() == print("The time required to repay the loan is -inf months")
+    assert Loan_Calculator(6000,0.15,0,0,0).loan_calc() == print("The time required to repay the loan is -inf months")
+    assert Loan_Calculator(56,0.5,0,0,0).loan_calc() == print("The time required to repay the loan is -inf months")
+    #test random situations
+    assert Loan_Calculator(504845,.05,5496,0,0).loan_calc() == print("The time required to repay the loan is 93 months")
+    assert Loan_Calculator(568,0.15,60,0,0).loan_calc() == print("The time required to repay the loan is 11 months")
+    assert Loan_Calculator(4354,0.23,230,0,0).loan_calc() == print("The time required to repay the loan is 24 months")
+
 #Thomas
 
 
