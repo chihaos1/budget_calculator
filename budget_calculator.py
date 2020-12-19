@@ -69,9 +69,9 @@ class Budget_Calculator:
                 wants (integer); The amount of money that you spend of wants per month
                 savings (integer): The amount of money that you save per month
 
-            Returns:
+            Returns:w
                 Message notifying users if spending fits into the 50-30-20 Rule
-        """
+        """ 
         total = self.need+self.want+self.savings
         if (self.need/total) <= .5 and (self.want/total) <= .3 and (self.savings/total) >= .2:
             print("Your budgeting matches the 50-30-20 Rule") 
