@@ -63,3 +63,14 @@ def test_retirement():
                                                                sep='\n')
     assert test.retirement(65, 20, 600000, 1000, 300) == print('Invalid Input: current age cannot be bigger than retirement age')
     assert test.retirement(20, 65, 600, 1000, 300) == print('You can retire now!')
+
+#Anthony
+def test_budget_calc():
+    #Testing high savings and low spending on needs and wants
+    assert Budget_Calculator(10000, 1000, 100, 200, 300, 50, 500, 6000, 1000).budget_rule() == "Your budgeting matches the 50-30-20 Rule"
+    #Testing high savings and low spending on needs high wants
+    assert Budget_Calculator(10000, 6000, 100, 200, 300, 50, 500, 3000, 0).budget_rule() == "Your budgeting does not match the 50-30-20 Rule"
+    #Testing high savings and high spending on needs and wants
+    assert Budget_Calculator(10000, 4000, 300, 200, 500, 0, 3500, 2000, 0).budget_rule() == "Your budgeting does not match the 50-30-20 Rule"
+    #Testing low savings and high spending on needs and wants
+    assert Budget_Calculator(10000, 4000, 300, 200, 500, 0, 3500, 1000, 0).budget_rule() == "Your budgeting does not match the 50-30-20 Rule"
