@@ -1,20 +1,9 @@
 import pytest
 from loan_calculator import Loan_Calculator
-
-#import functions as needed per person
-#Each person test two of their functions
-#check for happy paths and edge paths
 from budget_calculator import Budget_Calculator
-from loan_calculator import Loan_Calculator
-import pytest
 import random
 
-#Anthony
-
-
-#Maya
 def test_loan_calc():
-
     #last 2 args do not effect loan_calc
     assert Loan_Calculator(0,0,0,0,0).loan_calc() == print("The time required to repay the loan is 0.0 months")
     #tests if loan = 0
@@ -34,7 +23,6 @@ def test_loan_calc():
     assert Loan_Calculator(568,0.15,60,0,0).loan_calc() == print("The time required to repay the loan is 11 months")
     assert Loan_Calculator(4354,0.23,230,0,0).loan_calc() == print("The time required to repay the loan is 24 months")
 
-#Thomas
 def test_credit_score():
     """ Tests whether the boundaries of the credit scores have been established.
         This should be no less than 300 and no higher than 850
@@ -53,7 +41,6 @@ def test_credit_score():
                                  random.randrange(0,7),
                                  random.randrange(0,7)) <= 850
 
-#Chi-Hao
 def test_retirement():
     test = Loan_Calculator(50000, 0.05, 500, 5, 200)
     assert isinstance(test, Loan_Calculator)
@@ -64,13 +51,12 @@ def test_retirement():
     assert test.retirement(65, 20, 600000, 1000, 300) == print('Invalid Input: current age cannot be bigger than retirement age')
     assert test.retirement(20, 65, 600, 1000, 300) == print('You can retire now!')
 
-#Anthony
 def test_budget_calc():
     #Testing high savings and low spending on needs and wants
-    assert Budget_Calculator(10000, 1000, 100, 200, 300, 50, 500, 6000, 1000).budget_rule() == "Your budgeting matches the 50-30-20 Rule"
+    assert Budget_Calculator(10000, 1000, 100, 200, 300, 50, 500, 6000, 1000).budget_rule() == print("Your budgeting matches the 50-30-20 Rule")
     #Testing high savings and low spending on needs high wants
-    assert Budget_Calculator(10000, 6000, 100, 200, 300, 50, 500, 3000, 0).budget_rule() == "Your budgeting does not match the 50-30-20 Rule"
+    assert Budget_Calculator(10000, 6000, 100, 200, 300, 50, 500, 3000, 0).budget_rule() == print("Your budgeting does not match the 50-30-20 Rule")
     #Testing high savings and high spending on needs and wants
-    assert Budget_Calculator(10000, 4000, 300, 200, 500, 0, 3500, 2000, 0).budget_rule() == "Your budgeting does not match the 50-30-20 Rule"
+    assert Budget_Calculator(10000, 4000, 300, 200, 500, 0, 3500, 2000, 0).budget_rule() == print("Your budgeting does not match the 50-30-20 Rule")
     #Testing low savings and high spending on needs and wants
-    assert Budget_Calculator(10000, 4000, 300, 200, 500, 0, 3500, 1000, 0).budget_rule() == "Your budgeting does not match the 50-30-20 Rule"
+    assert Budget_Calculator(10000, 4000, 300, 200, 500, 0, 3500, 1000, 0).budget_rule() == print("Your budgeting does not match the 50-30-20 Rule")
