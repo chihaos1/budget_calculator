@@ -1,7 +1,7 @@
 A program that keeps track of the user's budget and provides financial
 suggestions according to the user's needs. 
 
-PURPOSE OF EACH FILE
+Purpose Of Each File
 -------------------------
 budget_calculator.py:
 	Creates a class that breaks down a user's budget allocation
@@ -59,7 +59,7 @@ test_calculator.py:
 	Developer defined test scripts to verify integrity of multiple
 	functions
 
-RUNNING THE PROGRAM
+Running the Program
 -------------------------
 The program is ran through budget_calculator.py. The command line argument takes
 9 variables then processes them using the argparse module. After inputting the
@@ -67,7 +67,7 @@ values of the variables, two graphs and a message will be generated. The termina
 will then prompt the users to select from 4 options that either lead them to access
 the methods in loan_calculator.py or exit the program. 
 
-USING THE PROGRAM
+Using the Program
 -------------------------
 The spending_graph method ouputs a pie chart that breaks down user's spending. User
 will be able to see how the monthly budget is being allocated and thereby decide whether
